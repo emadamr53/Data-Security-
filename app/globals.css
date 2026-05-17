@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ─────────────────────────────────────────────────────────────────── */
+html { -webkit-font-smoothing: antialiased; }
+
+body {
+  background-color: #f5f3ee;
+  color: #1a1815;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ─── Component Layer ───────────────────────────────────────────────────────── */
+@layer components {
+
+  /* Layout */
+  .page-wrap {
+    @apply max-w-4xl mx-auto px-5 py-10;
+  }
+
+  /* Card */
+  .card {
+    @apply bg-white border border-sand-200 rounded-xl shadow-card p-6;
+  }
+  .card-sm {
+    @apply bg-white border border-sand-200 rounded-lg shadow-card p-4;
+  }
+  .inset-box {
+    @apply bg-sand-50 border border-sand-200 rounded-lg p-4;
+  }
+
+  /* Inputs */
+  .field {
+    @apply w-full bg-white border border-sand-300 rounded-lg px-3.5 py-2.5
+           text-sand-900 placeholder-sand-400 text-sm
+           focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/10
+           transition-colors duration-150 font-sans;
+  }
+  .field-mono {
+    @apply field font-mono text-sm;
+  }
+
+  /* Labels */
+  .lbl {
+    @apply block text-xs font-semibold text-sand-600 uppercase tracking-wide mb-1.5;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg
+           text-sm font-semibold transition-all duration-150 active:scale-[0.98]
+           disabled:opacity-40 disabled:cursor-not-allowed select-none;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-white hover:bg-accent-600 shadow-sm;
+  }
+  .btn-outline {
+    @apply btn bg-white text-sand-700 border border-sand-300 hover:bg-sand-50 hover:border-sand-400;
+  }
+  .btn-ghost {
+    @apply btn text-sand-600 hover:text-sand-900 hover:bg-sand-100;
+  }
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700;
+  }
+  .btn-sm {
+    @apply !px-3 !py-1.5 !text-xs;
+  }
+
+  /* Output / result */
+  .result-box {
+    @apply w-full bg-sand-50 border border-sand-200 rounded-lg px-4 py-3
+           font-mono text-sm text-sand-900 min-h-[44px] break-all leading-relaxed;
+  }
+  .result-value {
+    @apply font-mono text-sm text-accent-600 break-all;
+  }
+
+  /* Tabs (underline style) */
+  .tab-bar {
+    @apply flex gap-0 border-b border-sand-200 mb-6 overflow-x-auto;
+  }
+  .tab {
+    @apply px-4 py-2.5 text-sm font-medium text-sand-500 border-b-2 border-transparent
+           -mb-px transition-colors duration-150 hover:text-sand-800 whitespace-nowrap cursor-pointer;
+  }
+  .tab-active {
+    @apply text-accent border-accent;
+  }
+
+  /* Section heading */
+  .section-h {
+    @apply text-base font-bold text-sand-900 mb-4;
+  }
+
+  /* Small badge/tag */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium;
+  }
+  .badge-gray  { @apply badge bg-sand-100 text-sand-600; }
+  .badge-amber { @apply badge bg-amber-50 text-amber-700 border border-amber-200; }
+  .badge-green { @apply badge bg-emerald-50 text-emerald-700 border border-emerald-200; }
+  .badge-red   { @apply badge bg-red-50 text-red-700 border border-red-200; }
+  .badge-blue  { @apply badge bg-blue-50 text-blue-700 border border-blue-200; }
+
+  /* Table */
+  .tbl {
+    @apply w-full text-sm;
+  }
+  .tbl thead tr {
+    @apply border-b border-sand-200;
+  }
+  .tbl th {
+    @apply text-left py-2 px-3 text-xs font-semibold text-sand-500 uppercase tracking-wide;
+  }
+  .tbl td {
+    @apply py-2 px-3 border-b border-sand-100;
+  }
+  .tbl tbody tr:last-child td {
+    @apply border-0;
+  }
+  .tbl tbody tr:hover td {
+    @apply bg-sand-50;
+  }
+
+  /* Step pill */
+  .step-num {
+    @apply flex-shrink-0 w-5 h-5 rounded-full bg-accent text-white font-bold
+           flex items-center justify-center text-xs;
+  }
+
+  /* Notice */
+  .notice {
+    @apply rounded-lg px-4 py-3 text-sm;
+  }
+  .notice-info   { @apply notice bg-blue-50 border border-blue-200 text-blue-800; }
+  .notice-warn   { @apply notice bg-amber-50 border border-amber-200 text-amber-800; }
+  .notice-ok     { @apply notice bg-emerald-50 border border-emerald-200 text-emerald-800; }
+  .notice-error  { @apply notice bg-red-50 border border-red-200 text-red-700; }
+
+  /* Divider */
+  .divider {
+    @apply border-t border-sand-200 my-5;
+  }
+
+  /* Matrix cell */
+  .cell {
+    @apply w-9 h-9 flex items-center justify-center text-sm font-mono font-semibold
+           border border-sand-200 rounded bg-white;
+  }
+  .cell-hi {
+    @apply cell bg-accent text-white border-accent;
+  }
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c5bfb3; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #a89f93; }
+
+/* ─── Selection ─────────────────────────────────────────────────────────────── */
+::selection { background: #f5c79f; color: #1a1815; }
