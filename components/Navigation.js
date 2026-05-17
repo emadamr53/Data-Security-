@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Logo from './Logo';
 
 const links = [
   { href: '/classical', label: 'Classical Ciphers' },
@@ -28,11 +29,9 @@ export default function Navigation() {
   return (
     <header className="bg-white border-b border-sand-200 sticky top-0 z-40">
       <div className="max-w-4xl mx-auto px-4 sm:px-5 flex items-center justify-between gap-3" style={{ minHeight: '52px' }}>
-        <Link href="/" className="flex items-center gap-2.5 group shrink-0 py-3">
-          <span className="w-7 h-7 rounded-md bg-accent flex items-center justify-center text-white font-black text-xs tracking-tight select-none">
-            CV
-          </span>
-          <span className="font-semibold text-sand-900 group-hover:text-accent transition-colors text-sm">
+        <Link href="/" className="flex items-center gap-2.5 group shrink-0 py-3" aria-label="CipherVault home">
+          <Logo size={32} className="shrink-0 drop-shadow-sm transition-transform duration-200 group-hover:scale-[1.03]" />
+          <span className="font-semibold text-sand-900 group-hover:text-accent transition-colors text-sm tracking-tight">
             CipherVault
           </span>
         </Link>
